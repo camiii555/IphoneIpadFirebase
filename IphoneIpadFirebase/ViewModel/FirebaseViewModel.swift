@@ -10,16 +10,29 @@ import Firebase
 
 class FirebaseViewModel: ObservableObject {
     @Published var loginShow: Bool = false
-    
-    
     func Login(email: String, password: String, completation: @escaping  (_ done: Bool) -> Void) {
         Auth.auth().signIn(withEmail: email, password: password) { userData, error in
             if userData != nil {
-                print("Entro")
+                print("Successfull")
                 completation(true)
             } else {
                 if let error = error?.localizedDescription {
                     print("Error in firebase", error)
+                } else {
+                    print("Error in the app")
+                }
+            }
+        }
+    }
+    
+    func createUser(email: String, password: String, completation: @escaping (_ done: Bool) -> Void) {
+        Auth.auth().createUser(withEmail: email, password:password) { user, error in
+            if user != nil {
+                print("registration completed")
+                completation(true)
+            } else {
+                if let error = error?.localizedDescription {
+                    print("Error in firebase registration error", error)
                 } else {
                     print("Error in the app")
                 }

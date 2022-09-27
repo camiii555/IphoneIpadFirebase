@@ -50,6 +50,25 @@ struct Login: View {
                     Capsule()
                         .stroke(Color.white)
                 )
+                Divider()
+                Button {
+                    login.createUser(email: email, password: password, completation: { done in
+                        if done {
+                            UserDefaults.standard.set(true, forKey: "logIn")
+                            loginShow.loginShow.toggle()
+                        }
+                    })
+                } label: {
+                    Text("Check in")
+                        .font(.title)
+                        .foregroundColor(.white)
+                        .frame(width: 200)
+                        .padding(.vertical, 10)
+                        
+                }.background(
+                    Capsule()
+                        .stroke(Color.white)
+                )
                 
             }.padding(.all)
         }

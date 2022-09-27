@@ -17,6 +17,11 @@ struct ContentView: View {
                     .preferredColorScheme(.dark)
             } else {
                 Login()
+                    .preferredColorScheme(.light)
+            }
+        }.onAppear {
+            if (UserDefaults.standard.object(forKey: "logIn")) != nil {
+                loginshow.loginShow = true
             }
         }
     }

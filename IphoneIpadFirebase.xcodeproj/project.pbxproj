@@ -73,14 +73,14 @@
 		D229419B28C82908002E1614 /* IphoneIpadFirebase */ = {
 			isa = PBXGroup;
 			children = (
-				D240036828CAFEFA0064BA55 /* ViewModel */,
-				D22941AA28C85277002E1614 /* View */,
-				D229419C28C82908002E1614 /* IphoneIpadFirebaseApp.swift */,
+				D240036628CAEB5F0064BA55 /* AppDelegate.swift */,
+				D22941A028C82909002E1614 /* Assets.xcassets */,
 				D229419E28C82908002E1614 /* ContentView.swift */,
 				D240035D28CAE1F70064BA55 /* GoogleService-Info.plist */,
-				D22941A028C82909002E1614 /* Assets.xcassets */,
+				D229419C28C82908002E1614 /* IphoneIpadFirebaseApp.swift */,
 				D22941A228C82909002E1614 /* Preview Content */,
-				D240036628CAEB5F0064BA55 /* AppDelegate.swift */,
+				D22941AA28C85277002E1614 /* View */,
+				D240036828CAFEFA0064BA55 /* ViewModel */,
 			);
 			path = IphoneIpadFirebase;
 			sourceTree = "<group>";

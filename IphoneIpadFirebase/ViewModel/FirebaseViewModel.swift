@@ -40,5 +40,22 @@ class FirebaseViewModel: ObservableObject {
         }
     }
     
+    // MARK: DATABASE
+    func saveToDataBase(gameTitle: String, gameDescription: String, gamePlataform: String, gameCover: String, completation: @escaping (_ done: Bool) -> Void) {
+        let db = Firestore.firestore()
+        let id = UUID().uuidString
+        guard let idUser = Auth.auth().currentUser?.uid else { return }
+        guard let emailUser = Auth.auth().currentUser?.email else { return }
+        let fields: [String: Any] = ["gameTitle": gameTitle, "gameDescription": gameDescription, "cover": gameCover, "idUser": idUser, "emailUser": emailUser]
+        db.collection(gamePlataform).document(id).setData(fields) { error in
+            if let error = error?.localizedDescription {
+                print("Error when saving in firestone", error)
+            } else {
+                print("successful save")
+                completation(true)
+            }
+        }
+    }
 }
+
 

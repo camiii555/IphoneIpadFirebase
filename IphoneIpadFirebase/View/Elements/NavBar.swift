@@ -27,6 +27,7 @@ struct NavBar: View {
                     ButtonView(index: $index, menu: $menu, title: "Playstation")
                     ButtonView(index: $index, menu: $menu, title: "Xbox")
                     ButtonView(index: $index, menu: $menu, title: "Nintendo")
+                    ButtonView(index: $index, menu: $menu, title: "Add")
                     Button {
                         // signOut Firebase session
                         try! Auth.auth().signOut()

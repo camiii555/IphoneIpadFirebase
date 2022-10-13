@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D20588B628F7C79A0050BDFA /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20588B528F7C79A0050BDFA /* AddView.swift */; };
 		D229419D28C82908002E1614 /* IphoneIpadFirebaseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D229419C28C82908002E1614 /* IphoneIpadFirebaseApp.swift */; };
 		D229419F28C82908002E1614 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D229419E28C82908002E1614 /* ContentView.swift */; };
 		D22941A128C82909002E1614 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D22941A028C82909002E1614 /* Assets.xcassets */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D20588B528F7C79A0050BDFA /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		D229419928C82908002E1614 /* IphoneIpadFirebase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IphoneIpadFirebase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D229419C28C82908002E1614 /* IphoneIpadFirebaseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IphoneIpadFirebaseApp.swift; sourceTree = "<group>"; };
 		D229419E28C82908002E1614 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 				D22941B328C852DC002E1614 /* Elements */,
 				D22941B428C852F7002E1614 /* Home.swift */,
 				D240036B28CB00D50064BA55 /* Login.swift */,
+				D20588B528F7C79A0050BDFA /* AddView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 			files = (
 				D229419F28C82908002E1614 /* ContentView.swift in Sources */,
 				D229419D28C82908002E1614 /* IphoneIpadFirebaseApp.swift in Sources */,
+				D20588B628F7C79A0050BDFA /* AddView.swift in Sources */,
 				D22941B228C852C6002E1614 /* ButtonView.swift in Sources */,
 				D22941B028C852B8002E1614 /* CardView.swift in Sources */,
 				D240036728CAEB5F0064BA55 /* AppDelegate.swift in Sources */,

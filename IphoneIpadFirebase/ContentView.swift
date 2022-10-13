@@ -14,7 +14,6 @@ struct ContentView: View {
             if loginshow.loginShow {
                 Home()
                     .edgesIgnoringSafeArea(.all)
-                    .preferredColorScheme(.dark)
             } else {
                 Login()
                     .preferredColorScheme(.light)

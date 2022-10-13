@@ -36,10 +36,12 @@ struct Home: View {
                         VStack {
                             Color.green
                         }
-                    } else {
+                    } else if index == "Nintendo" {
                         VStack {
                             Color.red
                         }
+                    } else {
+                        AddView()
                     }
                 }
             }

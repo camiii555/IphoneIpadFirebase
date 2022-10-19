@@ -10,7 +10,7 @@ import SwiftUI
 struct CardView: View {
     var body: some View {
         VStack(spacing: 20){
-            Image("CoverRinaBruja")
+            Image("CoverWitchQueen")
                 .resizable()
                 .aspectRatio(contentMode: .fit)
             Text("Destiny 2")

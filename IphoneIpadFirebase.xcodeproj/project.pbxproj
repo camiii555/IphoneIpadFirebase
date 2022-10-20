@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		D20588B628F7C79A0050BDFA /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20588B528F7C79A0050BDFA /* AddView.swift */; };
+		D20B51A6290107B600B34FB6 /* FirebaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B51A5290107B600B34FB6 /* FirebaseModel.swift */; };
+		D20B51A829010C7300B34FB6 /* CoverViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20B51A729010C7300B34FB6 /* CoverViewModel.swift */; };
 		D229419D28C82908002E1614 /* IphoneIpadFirebaseApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D229419C28C82908002E1614 /* IphoneIpadFirebaseApp.swift */; };
 		D229419F28C82908002E1614 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D229419E28C82908002E1614 /* ContentView.swift */; };
 		D22941A128C82909002E1614 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D22941A028C82909002E1614 /* Assets.xcassets */; };
@@ -28,6 +30,8 @@
 
 /* Begin PBXFileReference section */
 		D20588B528F7C79A0050BDFA /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
+		D20B51A5290107B600B34FB6 /* FirebaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseModel.swift; sourceTree = "<group>"; };
+		D20B51A729010C7300B34FB6 /* CoverViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverViewModel.swift; sourceTree = "<group>"; };
 		D229419928C82908002E1614 /* IphoneIpadFirebase.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IphoneIpadFirebase.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D229419C28C82908002E1614 /* IphoneIpadFirebaseApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IphoneIpadFirebaseApp.swift; sourceTree = "<group>"; };
 		D229419E28C82908002E1614 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -59,6 +63,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D20B51A42901079900B34FB6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D20B51A5290107B600B34FB6 /* FirebaseModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		D229419028C82908002E1614 = {
 			isa = PBXGroup;
 			children = (
@@ -78,12 +90,13 @@
 		D229419B28C82908002E1614 /* IphoneIpadFirebase */ = {
 			isa = PBXGroup;
 			children = (
-				D2C09A9828FFC059000BBE0A /* Info.plist */,
 				D240036628CAEB5F0064BA55 /* AppDelegate.swift */,
 				D22941A028C82909002E1614 /* Assets.xcassets */,
 				D229419E28C82908002E1614 /* ContentView.swift */,
 				D240035D28CAE1F70064BA55 /* GoogleService-Info.plist */,
+				D2C09A9828FFC059000BBE0A /* Info.plist */,
 				D229419C28C82908002E1614 /* IphoneIpadFirebaseApp.swift */,
+				D20B51A42901079900B34FB6 /* Model */,
 				D22941A228C82909002E1614 /* Preview Content */,
 				D22941AA28C85277002E1614 /* View */,
 				D240036828CAFEFA0064BA55 /* ViewModel */,
@@ -125,6 +138,7 @@
 			isa = PBXGroup;
 			children = (
 				D240036928CAFF190064BA55 /* FirebaseViewModel.swift */,
+				D20B51A729010C7300B34FB6 /* CoverViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -208,8 +222,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D20B51A6290107B600B34FB6 /* FirebaseModel.swift in Sources */,
 				D229419F28C82908002E1614 /* ContentView.swift in Sources */,
 				D229419D28C82908002E1614 /* IphoneIpadFirebaseApp.swift in Sources */,
+				D20B51A829010C7300B34FB6 /* CoverViewModel.swift in Sources */,
 				D20588B628F7C79A0050BDFA /* AddView.swift in Sources */,
 				D22941B228C852C6002E1614 /* ButtonView.swift in Sources */,
 				D22941B028C852B8002E1614 /* CardView.swift in Sources */,

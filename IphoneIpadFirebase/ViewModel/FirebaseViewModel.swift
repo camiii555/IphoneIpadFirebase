@@ -10,7 +10,10 @@ import Firebase
 import FirebaseStorage
 
 class FirebaseViewModel: ObservableObject {
+    
     @Published var loginShow: Bool = false
+    @Published var data = [FirebaseModel]()
+    
     func Login(email: String, password: String, completation: @escaping  (_ done: Bool) -> Void) {
         Auth.auth().signIn(withEmail: email, password: password) { userData, error in
             if userData != nil {
@@ -76,7 +79,31 @@ class FirebaseViewModel: ObservableObject {
                 }
             }
         }
+    }
+    
+    
+    func getData(plataform: String) {
+        let db = Firestore.firestore()
         
+        db.collection(plataform).addSnapshotListener { querySnapshot, error in
+            if let error = error?.localizedDescription {
+                print("add functionality to upload images to firebase storage", error)
+            } else {
+                self.data.removeAll()
+                for document in querySnapshot!.documents {
+                    let value = document.data()
+                    let id = document.documentID
+                    let gameTitle = value["gameTitle"] as? String ?? "no title"
+                    let gameDescription = value["gameDescription"] as? String ?? "no title"
+                    let gameCover = value["cover"] as? String ?? "no title"
+                    
+                    DispatchQueue.main.async {
+                        let records = FirebaseModel(id: id, gameTitle: gameTitle, gameDescription: gameDescription, gameCover: gameCover)
+                        self.data.append(records)
+                    }
+                }
+            }
+        }
     }
 }
     

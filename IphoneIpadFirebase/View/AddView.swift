@@ -19,6 +19,8 @@ struct AddView: View {
     @State private var imagePicker = false
     @State private var source: UIImagePickerController.SourceType = .camera
     
+    @State private var progress = false
+    
     var body: some View {
         NavigationView {
             ZStack{
@@ -70,11 +72,13 @@ struct AddView: View {
                         
                         
                         Button {
+                            progress = true
                             saveDatabase.saveToDataBase(gameTitle: gameTitle, gameDescription: gameDescription, gamePlataform: plataform, gameCover: imageData) { done in
                                 if done {
                                     gameTitle = ""
                                     gameDescription = ""
                                     imageData = .init(capacity: 0)
+                                    progress = false
                                 }
                             }
                         } label: {
@@ -82,6 +86,11 @@ struct AddView: View {
                                 .foregroundColor(.black)
                                 .bold()
                                 .font(.largeTitle)
+                        }
+                        
+                        if progress {
+                            Text("Wait a moment please").foregroundColor(.black)
+                            ProgressView()
                         }
                     }
 

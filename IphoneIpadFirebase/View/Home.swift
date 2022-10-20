@@ -24,22 +24,11 @@ struct Home: View {
                 NavBar(index: $index, menu: $menu)
                 ZStack{
                     if index == "Playstation" {
-                        ScrollView(.vertical, showsIndicators: false) {
-                            LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 20), count: getColumns()), spacing: 20) {
-                                ForEach(1...9, id:\.self){ _ in
-                                    CardView()
-                                        .padding(.all)
-                                }
-                            }
-                        }
+                        ListView(plataform: "playstation")
                     } else if index == "Xbox" {
-                        VStack {
-                            Color.green
-                        }
+                        ListView(plataform: "xbox")
                     } else if index == "Nintendo" {
-                        VStack {
-                            Color.red
-                        }
+                        ListView(plataform: "nintendo")
                     } else {
                         AddView()
                     }

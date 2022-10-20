@@ -67,22 +67,25 @@ struct AddView: View {
                             .resizable()
                             .frame(width: 250, height: 250)
                             .cornerRadius(15)
+                        
+                        
+                        Button {
+                            saveDatabase.saveToDataBase(gameTitle: gameTitle, gameDescription: gameDescription, gamePlataform: plataform, gameCover: imageData) { done in
+                                if done {
+                                    gameTitle = ""
+                                    gameDescription = ""
+                                    imageData = .init(capacity: 0)
+                                }
+                            }
+                        } label: {
+                            Text("Save")
+                                .foregroundColor(.black)
+                                .bold()
+                                .font(.largeTitle)
+                        }
                     }
 
-                    
-                    Button {
-                        saveDatabase.saveToDataBase(gameTitle: gameTitle, gameDescription: gameDescription, gamePlataform: plataform, gameCover: "link") { done in
-                            if done {
-                                gameTitle = ""
-                                gameDescription = ""
-                            }
-                        }
-                    } label: {
-                        Text("Save")
-                            .foregroundColor(.black)
-                            .bold()
-                            .font(.largeTitle)
-                    }
+
                     Spacer()
                 }.padding(.all)
             }

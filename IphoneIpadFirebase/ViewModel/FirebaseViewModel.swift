@@ -81,7 +81,7 @@ class FirebaseViewModel: ObservableObject {
         }
     }
     
-    
+    // MARK: Get Data Record
     func getData(plataform: String) {
         let db = Firestore.firestore()
         
@@ -105,6 +105,73 @@ class FirebaseViewModel: ObservableObject {
             }
         }
     }
+    
+    // MARK: Delete Record
+    func deleteRecord(indexRecord: FirebaseModel, plataform: String) {
+        // delete firestore
+        let id = indexRecord.id
+        let db = Firestore.firestore()
+        db.collection(plataform).document(id).delete()
+        // delete of storage
+        let imagen = indexRecord.gameCover
+        let deleteImage = Storage.storage().reference(forURL: imagen)
+        deleteImage.delete(completion: nil)
+    }
+    
+    // MARK: Edit Record
+    func editRecord(gameTitle: String, gameDescription: String, pltaform: String , id: String, completation: @escaping (_ done: Bool) -> Void) {
+        let db = Firestore.firestore()
+        let fields: [String: Any] = ["gameTitle": gameTitle, "gameDescription": gameDescription]
+        db.collection(pltaform).document(id).updateData(fields) { error in
+            if let error = error?.localizedDescription {
+                print("Error, Failed to edit", error)
+            } else {
+                print("update completed - text only")
+                completation(true)
+            }
+        }
+    }
+    
+    // MARK: Edit Record With Image
+    func editRecordWithImage(gameTitle: String, gameDescription: String, pltaform: String , id: String, indexRecord: FirebaseModel, gameCover: Data, completation: @escaping (_ done: Bool) -> Void) {
+        // Delete Image
+        let imagen = indexRecord.gameCover
+        let deleteImage = Storage.storage().reference(forURL: imagen)
+        deleteImage.delete(completion: nil)
+        // Upload new image
+        let storage = Storage.storage().reference()
+        let coverName = UUID()
+        let directory = storage.child("gallery/\(coverName)")
+        let metaData = StorageMetadata()
+        metaData.contentType = "image/png"
+        
+        directory.putData(gameCover, metadata: metaData) { data, error in
+            if error == nil {
+                // Editing Text
+                print("successful new image save")
+                let db = Firestore.firestore()
+                let fields: [String: Any] = ["gameTitle": gameTitle, "gameDescription": gameDescription, "gameCover": String(describing: directory)]
+                db.collection(pltaform).document(id).updateData(fields) { error in
+                    if let error = error?.localizedDescription {
+                        print("Error, Failed to edit", error)
+                    } else {
+                        print("update completed - text only")
+                        completation(true)
+                    }
+                }
+                
+            } else {
+                if let error = error?.localizedDescription {
+                    print("error uploading image - storage", error)
+                } else {
+                    print("crash in the app")
+                }
+            }
+        }
+        
+        
+    }
+    
 }
     
 

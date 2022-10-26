@@ -8,8 +8,13 @@
 import SwiftUI
 
 struct CardView: View {
+    
     var title: String
     var cover: String
+    
+    var index: FirebaseModel
+    var plataform: String
+    @StateObject var firebaseViewModel = FirebaseViewModel()
     
     var body: some View {
         VStack(spacing: 20){
@@ -18,15 +23,19 @@ struct CardView: View {
                 .font(.title)
                 .bold()
                 .foregroundColor(.black)
+            Button {
+                firebaseViewModel.deleteRecord(indexRecord: index, plataform: plataform)
+            } label: {
+                Text("Delete")
+                    .foregroundColor(.red)
+                    .padding(.vertical, 10)
+                    .padding(.horizontal, 25)
+                    .background(Capsule().stroke(Color.red))
+            }
+
         }
         .padding()
         .background(Color.white)
         .cornerRadius(20)
-    }
-}
-
-struct CardView_Previews: PreviewProvider {
-    static var previews: some View {
-        CardView(title: "", cover: "")
     }
 }

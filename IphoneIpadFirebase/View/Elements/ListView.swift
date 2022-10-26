@@ -23,7 +23,7 @@ struct ListView: View {
         ScrollView(.vertical, showsIndicators: false) {
             LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 20), count: getColumns()), spacing: 20) {
                 ForEach(firebaseViewModel.data){ item in
-                    CardView(title: item.gameTitle, cover: item.gameCover)
+                    CardView(title: item.gameTitle, cover: item.gameCover, index: item, plataform: plataform)
                         .padding(.all)
                 }
             }

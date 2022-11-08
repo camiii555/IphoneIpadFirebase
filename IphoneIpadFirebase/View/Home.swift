@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct Home: View {
     @State private var index = "Playstation"
@@ -13,6 +14,7 @@ struct Home: View {
     @State private var widthMenu = UIScreen.main.bounds.width
     var device = UIDevice.current.userInterfaceIdiom
     @Environment(\.horizontalSizeClass) var width
+    @EnvironmentObject var loginShow: FirebaseViewModel
     
     func getColumns() -> Int {
         return (device == .pad) ? 3 : ((device == .phone && width == .regular ? 3 : 1))
@@ -58,6 +60,16 @@ struct Home: View {
                             ButtonView(index: $index, menu: $menu, title: "Playstation")
                             ButtonView(index: $index, menu: $menu, title: "Xbox")
                             ButtonView(index: $index, menu: $menu, title: "Nintendo")
+                            Button {
+                                try! Auth.auth().signOut()
+                                UserDefaults.standard.removeObject(forKey: "logIn")
+                                loginShow.loginShow = false
+                            } label: {
+                                Text("Salir")
+                                    .foregroundColor(.white)
+                                    .bold()
+                            }
+
                         }
                         Spacer()
                     }
@@ -66,6 +78,6 @@ struct Home: View {
                 }
             }
         }
-        .background(Color.white.opacity(0.9))
+        .background(Color("fontColor"))
     }
 }

@@ -13,6 +13,14 @@ class FirebaseViewModel: ObservableObject {
     
     @Published var loginShow: Bool = false
     @Published var data = [FirebaseModel]()
+    @Published var itemUpdate: FirebaseModel!
+    @Published var showEdit = false
+    
+    
+    func sendData(item: FirebaseModel) {
+        itemUpdate = item
+        showEdit.toggle()
+    }
     
     func Login(email: String, password: String, completation: @escaping  (_ done: Bool) -> Void) {
         Auth.auth().signIn(withEmail: email, password: password) { userData, error in
@@ -150,7 +158,7 @@ class FirebaseViewModel: ObservableObject {
                 // Editing Text
                 print("successful new image save")
                 let db = Firestore.firestore()
-                let fields: [String: Any] = ["gameTitle": gameTitle, "gameDescription": gameDescription, "gameCover": String(describing: directory)]
+                let fields: [String: Any] = ["gameTitle": gameTitle, "gameDescription": gameDescription, "cover": String(describing: directory)]
                 db.collection(pltaform).document(id).updateData(fields) { error in
                     if let error = error?.localizedDescription {
                         print("Error, Failed to edit", error)

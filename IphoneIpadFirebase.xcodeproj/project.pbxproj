@@ -28,6 +28,7 @@
 		D240036A28CAFF190064BA55 /* FirebaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D240036928CAFF190064BA55 /* FirebaseViewModel.swift */; };
 		D240036C28CB00D50064BA55 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = D240036B28CB00D50064BA55 /* Login.swift */; };
 		D2C09A9728FFA9AA000BBE0A /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2C09A9628FFA9A9000BBE0A /* ImagePicker.swift */; };
+		D2CEA7AD291A278500708427 /* EditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2CEA7AC291A278500708427 /* EditView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +52,7 @@
 		D240036B28CB00D50064BA55 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		D2C09A9628FFA9A9000BBE0A /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		D2C09A9828FFC059000BBE0A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		D2CEA7AC291A278500708427 /* EditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 				D22941B428C852F7002E1614 /* Home.swift */,
 				D240036B28CB00D50064BA55 /* Login.swift */,
 				D20588B528F7C79A0050BDFA /* AddView.swift */,
+				D2CEA7AC291A278500708427 /* EditView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -238,6 +241,7 @@
 				D22941B228C852C6002E1614 /* ButtonView.swift in Sources */,
 				D22941B028C852B8002E1614 /* CardView.swift in Sources */,
 				D240036728CAEB5F0064BA55 /* AppDelegate.swift in Sources */,
+				D2CEA7AD291A278500708427 /* EditView.swift in Sources */,
 				D22941B528C852F7002E1614 /* Home.swift in Sources */,
 				D2C09A9728FFA9AA000BBE0A /* ImagePicker.swift in Sources */,
 				D240036C28CB00D50064BA55 /* Login.swift in Sources */,

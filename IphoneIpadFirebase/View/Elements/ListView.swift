@@ -18,12 +18,18 @@ struct ListView: View {
     
     var plataform: String
     @StateObject var firebaseViewModel = FirebaseViewModel()
+    //@State private var showEdit = false
     
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 20), count: getColumns()), spacing: 20) {
                 ForEach(firebaseViewModel.data){ item in
                     CardView(title: item.gameTitle, cover: item.gameCover, index: item, plataform: plataform)
+                        .onTapGesture {
+                            firebaseViewModel.sendData(item: item)
+                        }.sheet(isPresented: $firebaseViewModel.showEdit, content: {
+                            EditView(plataform: plataform, data: firebaseViewModel.itemUpdate)
+                        })
                         .padding(.all)
                 }
             }
